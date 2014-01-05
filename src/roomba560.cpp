@@ -147,7 +147,7 @@ int main(int argc, char** argv)
 	ros::Subscriber playsong_sub  = n.subscribe<roomba_sci::PlaySong>("/play_song", 1, playSongReceived);
 	
 	irobot::SCI_Packet_ID sensor_packets[1] = {irobot::SCI_PACKET_GROUP_100};
-	roomba->setSensorPackets(sensor_packets, 1, SCI_PACKET_GROUP_100_SIZE);
+//	roomba->setSensorPackets(sensor_packets, 1, SCI_PACKET_GROUP_100_SIZE);
 
 	if( roomba->openSerialPort(true) == 0) ROS_INFO("Connected to Roomba.");
 	else

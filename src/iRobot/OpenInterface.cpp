@@ -65,8 +65,8 @@ irobot::OpenInterface::OpenInterface(const char * new_serial_port)
 	packets_size_ = 0;
 	
 	// Default packets
-	SCI_Packet_ID default_packets[2] = {SCI_PACKET_RIGHT_ENCODER, SCI_PACKET_LEFT_ENCODER};
-	this->setSensorPackets(default_packets, 2, SCI_PACKET_RIGHT_ENCODER_SIZE + SCI_PACKET_LEFT_ENCODER_SIZE);
+//	SCI_Packet_ID default_packets[2] = {SCI_PACKET_RIGHT_ENCODER, SCI_PACKET_LEFT_ENCODER};
+//	this->setSensorPackets(default_packets, 2, SCI_PACKET_RIGHT_ENCODER_SIZE + SCI_PACKET_LEFT_ENCODER_SIZE);
 
 	serial_port_ = new cereal::CerealPort();
 }
@@ -254,28 +254,27 @@ int irobot::OpenInterface::brushes(bool side_brush, bool vacuum, bool main_brush
 //}
 
 
-// *****************************************************************************
-// Set the sensors to read
-int irobot::OpenInterface::setSensorPackets(SCI_Packet_ID * new_sensor_packets, int new_num_of_packets, size_t new_buffer_size)
-{
-	if(sensor_packets_ == NULL)
-	{
-		delete [] sensor_packets_;
-	}
+//// *****************************************************************************
+//// Set the sensors to read
+//int irobot::OpenInterface::setSensorPackets(SCI_Packet_ID * new_sensor_packets, int new_num_of_packets, size_t new_buffer_size)
+//{
+//	if(sensor_packets_ == NULL)
+//	{
+//		delete [] sensor_packets_;
+//	}
 	
-	num_of_packets_ = new_num_of_packets;
-	sensor_packets_ = new SCI_Packet_ID[num_of_packets_];
+//	num_of_packets_ = new_num_of_packets;
+//	sensor_packets_ = new SCI_Packet_ID[num_of_packets_];
 	
-	for(int i=0 ; i<num_of_packets_ ; i++)
-	{
-		sensor_packets_[i] = new_sensor_packets[i];
-	}
+//	for(int i=0 ; i<num_of_packets_ ; i++)
+//	{
+//		sensor_packets_[i] = new_sensor_packets[i];
+//	}
 
-	stream_defined_ = false;
-	packets_size_ = new_buffer_size;
-	return(0);
-}
-
+//	stream_defined_ = false;
+//	packets_size_ = new_buffer_size;
+//	return(0);
+//}
 
 //// *****************************************************************************
 //// Read the sensors
@@ -301,57 +300,55 @@ int irobot::OpenInterface::setSensorPackets(SCI_Packet_ID * new_sensor_packets, 
 //	return this->parseSensorPackets((unsigned char*)data_buffer, packets_size_);
 //}
 
+// Read all the sensors
+int irobot::OpenInterface::getAllSensors(int timeout)
+{
+	const int NUM_BYTES = 26;
+	char cmd_buffer[2];
+	char data_buffer[NUM_BYTES];
 
-//// *****************************************************************************
-//// Read the sensors stream
-//int irobot::OpenInterface::streamSensorPackets()
-//{
-//	char data_buffer[packets_size_];
+	// Fill in the command buffer to send to the robot
+	cmd_buffer[0] = (char)SCI_OPCODE_SENSORS;		// Query sensors
+	cmd_buffer[1] = 0;								// Type of packet
 
-//	if(!stream_defined_)
-//	{
-//		char cmd_buffer[num_of_packets_+2];
+	try{ serial_port_->write(cmd_buffer, 2); }
+	catch(cereal::Exception& e){ return(-1); }
 
-//		// Fill in the command buffer to send to the robot
-//		cmd_buffer[0] = (char)SCI_OPCODE_STREAM;			// Stream
-//		cmd_buffer[1] = num_of_packets_;				// Number of packets
-//		for(int i=0 ; i<num_of_packets_ ; i++)
-//		{
-//			cmd_buffer[i+2] = sensor_packets_[i];		// The packet IDs
-//		}
-//		try{ serial_port_->write(cmd_buffer, num_of_packets_+2); }
-//		catch(cereal::Exception& e){ return(-1); }
-//		stream_defined_ = true;
-//	}
-//	try{ serial_port_->readBytes(data_buffer, packets_size_, 100); }
-//	catch(cereal::Exception& e){ return(-1); }
-	
-//	return this->parseSensorPackets((unsigned char*)data_buffer, packets_size_);
-//}
+	try{ serial_port_->readBytes(data_buffer, NUM_BYTES, timeout); }
+	catch(cereal::Exception& e){ return(-1); }
 
-//int irobot::OpenInterface::startStream()
-//{
-//	char data_buffer[2];
+	return this->parseAllSensors((unsigned char*)data_buffer);
 
-//	data_buffer[0] = SCI_OPCODE_PAUSE_RESUME_STREAM;
-//	data_buffer[1] = 1;
+}
 
-//	try{ serial_port_->write(data_buffer, 2); }
-//	catch(cereal::Exception& e){ return(-1); }
-//	return(0);
-//}
+int irobot::OpenInterface::parseAllSensors(unsigned char* buffer)
+{
+	int index = 0;
 
-//int irobot::OpenInterface::stopStream()
-//{
-//	char data_buffer[2];
+	index += parseBumpersAndWheeldrops(buffer, index);
+	index += parseWall(buffer, index);
+	index += parseLeftCliff(buffer, index);
+	index += parseFrontLeftCliff(buffer, index);
+	index += parseFrontRightCliff(buffer, index);
+	index += parseRightCliff(buffer, index);
+	index += parseVirtualWall(buffer, index);
+	index += parseOvercurrents(buffer, index);
+	index += parseDirtDetector(buffer, index);
+	index += parseIrOmniChar(buffer, index);
+	index += parseButtons(buffer, index);
+	index += parseDistance(buffer, index);
+	index += parseAngle(buffer, index);
+	index += parseChargingState(buffer, index);
+	index += parseVoltage(buffer, index);
+	index += parseCurrent(buffer, index);
+	index += parseTemperature(buffer, index);
+	index += parseBatteryCharge(buffer, index);
+	index += parseBatteryCapacity(buffer, index);
 
-//	data_buffer[0] = SCI_OPCODE_PAUSE_RESUME_STREAM;
-//	data_buffer[1] = 0;
+	assert(index == 25);
 
-//	try{ serial_port_->write(data_buffer, 2); }
-//	catch(cereal::Exception& e){ return(-1); }
-//	return(0);
-//}
+	return 0;
+}
 
 
 // *****************************************************************************
@@ -904,7 +901,8 @@ int irobot::OpenInterface::parseOvercurrents(unsigned char * buffer, int index)
 int irobot::OpenInterface::parseDirtDetector(unsigned char * buffer, int index)
 {
 	// Dirt Detector
-	this->dirt_detect_ = buffer[index];
+	this->dirt_detect_[LEFT] = buffer[index];
+	this->dirt_detect_[RIGHT] = buffer[index + 1];
 
 	return SCI_PACKET_DIRT_DETECT_SIZE;
 }

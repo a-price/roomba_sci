@@ -56,7 +56,7 @@
 #define SCI_PACKET_CLIFF_RIGHT_SIZE					1
 #define SCI_PACKET_VIRTUAL_WALL_SIZE					1
 #define SCI_PACKET_WHEEL_OVERCURRENTS_SIZE			1
-#define SCI_PACKET_DIRT_DETECT_SIZE					1
+#define SCI_PACKET_DIRT_DETECT_SIZE					2
 #define SCI_PACKET_IR_CHAR_OMNI_SIZE					1
 #define SCI_PACKET_IR_CHAR_LEFT_SIZE					1
 #define SCI_PACKET_IR_CHAR_RIGHT_SIZE				1
@@ -339,7 +339,7 @@ namespace irobot
 		*
 		*  \return 0 if ok, -1 otherwise.
 		*/
-		int setSensorPackets(SCI_Packet_ID * new_sensor_packets, int new_num_of_packets, size_t new_buffer_size);
+//		int setSensorPackets(SCI_Packet_ID * new_sensor_packets, int new_num_of_packets, size_t new_buffer_size);
 		//! Read sensor packets
 		/*!
 		*  Requested the defined sensor packets from the Roomba. If you need odometry and you requested encoder data you need to call calculateOdometry() afterwords.
@@ -351,13 +351,9 @@ namespace irobot
 		*  \return 0 if ok, -1 otherwise.
 		*/
 //		int getSensorPackets(int timeout);
-		
-		//! Stream sensor packets. NOT TESTED
-		int streamSensorPackets();
-		//! Start stream. NOT TESTED
-		int startStream();
-		//! Stom stream. NOT TESTED
-		int stopStream();
+
+		int getAllSensors(int timeout);
+		int parseAllSensors(unsigned char* buffer);
 	
 		//! Calculate Roomba odometry. Call after reading encoder pulses.
 		void calculateOdometry();
@@ -529,7 +525,7 @@ namespace irobot
 	
 		bool buttons_[8];				//! Buttons. Indexes: BUTTON_CLOCK BUTTON_SCHEDULE BUTTON_DAY BUTTON_HOUR BUTTON_MINUTE BUTTON_DOCK BUTTON_SPOT BUTTON_CLEAN
 	
-		unsigned char dirt_detect_;		//! Dirt detected
+		unsigned char dirt_detect_[2];	//! Dirt detected Indexes: LEFT RIGHT
 	
 		int motor_current_[4];			//! Motor current. Indexes: LEFT RIGHT MAIN_BRUSH SIDE_BRUSH
 		bool overcurrent_[4];			//! Motor overcurrent. Indexes: LEFT RIGHT MAIN_BRUSH SIDE_BRUSH
