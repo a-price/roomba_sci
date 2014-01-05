@@ -36,7 +36,7 @@
 *********************************************************************/
 #include <ros/ros.h>
 #include <actionlib/client/simple_action_client.h>
-#include <roomba_500_series/GoDockAction.h>
+#include <roomba_sci/GoDockAction.h>
 
 int main (int argc, char **argv)
 {
@@ -44,7 +44,7 @@ int main (int argc, char **argv)
 
 	// create the action client
 	// true causes the client to spin it's own thread
-	actionlib::SimpleActionClient<roomba_500_series::GoDockAction> ac("godock", true);
+	actionlib::SimpleActionClient<roomba_sci::GoDockAction> ac("godock", true);
 
 	ROS_INFO("Waiting for action server to start.");
 	// wait for the action server to start
@@ -52,7 +52,7 @@ int main (int argc, char **argv)
 
 	ROS_INFO("Action server started, sending goal.");
 	// send a goal to the action
-	roomba_500_series::GoDockGoal goal;
+	roomba_sci::GoDockGoal goal;
 	goal.timeout = ros::Duration(30.0);
 	ac.sendGoal(goal);
 

@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <package>
-  <name>roomba_500_series</name>
+  <name>roomba_sci</name>
   <version>0.0.0</version>
   <description>
     iRobot Roomba 500 package based on the iRobot Open Interface Specification. There are two nodes available, a light node which exposes odometry and velocity commands, and a full node which exposes all capabilities of the underlying library.
   </description>
   <author>Gonçalo Cabrita</author>
   <license>BSD</license>
-  <url>http://ros.org/wiki/roomba_500_series</url>
+  <url>http://ros.org/wiki/roomba_sci</url>
   <maintainer email="robertgcofield@gmail.com">Robert Cofield</maintainer>
 
   <buildtool_depend>catkin</buildtool_depend>

@@ -42,7 +42,7 @@
 #include <netinet/in.h>
 #include <sys/types.h>
 
-#include "roomba_500_series/OpenInterface.h"
+#include "roomba_sci/OpenInterface.h"
 
 // *****************************************************************************
 // Constructor

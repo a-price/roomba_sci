@@ -41,7 +41,7 @@
 #include <nav_msgs/Odometry.h>			// odom
 #include <geometry_msgs/Twist.h>		// cmd_vel
 
-#include "roomba_500_series/OpenInterface.h"
+#include "roomba_sci/OpenInterface.h"
 
 #include <string>
 

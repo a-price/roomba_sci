@@ -38,9 +38,9 @@
 #include <actionlib/server/simple_action_server.h>
 #include <tf/transform_broadcaster.h>
 #include <geometry_msgs/Twist.h>		// cmd_vel
-#include <roomba_500_series/IRCharacter.h>	// ir_character
-#include <roomba_500_series/Battery.h>		// battery
-#include <roomba_500_series/GoDockAction.h>
+#include <roomba_sci/IRCharacter.h>	// ir_character
+#include <roomba_sci/Battery.h>		// battery
+#include <roomba_sci/GoDockAction.h>
 
 // IR Characters
 #define FORCE_FIELD						161
@@ -63,14 +63,14 @@ class GoDockAction
 	//! Node handle
 	ros::NodeHandle nh_;
 	//! Action Server
-	actionlib::SimpleActionServer<roomba_500_series::GoDockAction> as_;
+	actionlib::SimpleActionServer<roomba_sci::GoDockAction> as_;
 	//! Action name
 	std::string action_name_;
 	
 	//! Message used to published feedback
-	roomba_500_series::GoDockFeedback feedback_;
+	roomba_sci::GoDockFeedback feedback_;
 	//! Message used to published result
-	roomba_500_series::GoDockResult result_;
+	roomba_sci::GoDockResult result_;
 
 	private:
 	//! Publisher for cmd_vel, to move the robot
@@ -82,7 +82,7 @@ class GoDockAction
 	ros::Subscriber bat_sub_;
 	
 	//! IR char
-	roomba_500_series::IRCharacter ir_character_;
+	roomba_sci::IRCharacter ir_character_;
 	//! Whether the Roomba is docked or not
 	bool dock_;
 
@@ -114,7 +114,7 @@ class GoDockAction
 	*  \param goal    New goal.
 	* 
 	*/
-	void goalCallback(const roomba_500_series::GoDockGoalConstPtr & goal);
+	void goalCallback(const roomba_sci::GoDockGoalConstPtr & goal);
 	//! IR callback
 	/*!
 	*  This function is a callback for ir_char.
@@ -122,7 +122,7 @@ class GoDockAction
 	*  \param ir    Roomba ir message.
 	* 
 	*/
-	void irCallback(const roomba_500_series::IRCharacterConstPtr & ir);
+	void irCallback(const roomba_sci::IRCharacterConstPtr & ir);
 	//! Battery callback
 	/*!
 	*  This function is a callback for battery.
@@ -130,7 +130,7 @@ class GoDockAction
 	*  \param bat    Roomba battery message.
 	* 
 	*/
-	void batteryCallback(const roomba_500_series::BatteryConstPtr & bat);
+	void batteryCallback(const roomba_sci::BatteryConstPtr & bat);
 };
 
 // EOF

@@ -34,7 +34,7 @@
 *
 * Author: Gonçalo Cabrita on 11/10/2010
 *********************************************************************/
-#include "roomba_500_series/GoDock.h"
+#include "roomba_sci/GoDock.h"
 
 GoDockAction::GoDockAction(std::string name) : as_(nh_, name, boost::bind(&GoDockAction::goalCallback, this, _1)) , action_name_(name)
 {
@@ -49,7 +49,7 @@ GoDockAction::~GoDockAction()
 	
 }
 
-void GoDockAction::goalCallback(const roomba_500_series::GoDockGoalConstPtr & goal)
+void GoDockAction::goalCallback(const roomba_sci::GoDockGoalConstPtr & goal)
 {
 	ros::Rate r(10);
 	ROS_INFO("GoDock -- Initiating docking proceadure...");
@@ -97,14 +97,14 @@ void GoDockAction::goalCallback(const roomba_500_series::GoDockGoalConstPtr & go
 	}	
 }
 
-void GoDockAction::irCallback(const roomba_500_series::IRCharacterConstPtr & ir)
+void GoDockAction::irCallback(const roomba_sci::IRCharacterConstPtr & ir)
 {
 	ir_character_.omni = ir->omni;
 	ir_character_.left = ir->left;
 	ir_character_.right = ir->right;
 }
 
-void GoDockAction::batteryCallback(const roomba_500_series::BatteryConstPtr & bat)
+void GoDockAction::batteryCallback(const roomba_sci::BatteryConstPtr & bat)
 {
 	dock_ = bat->dock;
 }
