@@ -120,8 +120,8 @@ int main(int argc, char** argv)
 		last_y = roomba->odometry_y_;
 		last_yaw = roomba->odometry_yaw_;
 		
-		if( roomba->getSensorPackets(100) == -1) ROS_ERROR("Could not retrieve sensor packets.");
-		else roomba->calculateOdometry();
+//		if( roomba->getSensorPackets(100) == -1) ROS_ERROR("Could not retrieve sensor packets.");
+//		else roomba->calculateOdometry();
 		
 		dt = (current_time - last_time).toSec();
 		vel_x = (roomba->odometry_x_ - last_x)/dt;

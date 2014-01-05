@@ -82,7 +82,7 @@ void digitLedsReceived(const roomba_sci::DigitLeds::ConstPtr& leds)
 {
 	if(leds->digits.size()!=4) return;
 
-	roomba->setDigitLeds(leds->digits[3], leds->digits[2], leds->digits[1], leds->digits[0]);
+//	roomba->setDigitLeds(leds->digits[3], leds->digits[2], leds->digits[1], leds->digits[0]);
 }
 
 void songReceived(const roomba_sci::Song::ConstPtr& song)
@@ -146,8 +146,8 @@ int main(int argc, char** argv)
 	ros::Subscriber song_sub  = n.subscribe<roomba_sci::Song>("/song", 1, songReceived);
 	ros::Subscriber playsong_sub  = n.subscribe<roomba_sci::PlaySong>("/play_song", 1, playSongReceived);
 	
-	irobot::OI_Packet_ID sensor_packets[1] = {irobot::OI_PACKET_GROUP_100};
-	roomba->setSensorPackets(sensor_packets, 1, OI_PACKET_GROUP_100_SIZE);
+	irobot::SCI_Packet_ID sensor_packets[1] = {irobot::SCI_PACKET_GROUP_100};
+	roomba->setSensorPackets(sensor_packets, 1, SCI_PACKET_GROUP_100_SIZE);
 
 	if( roomba->openSerialPort(true) == 0) ROS_INFO("Connected to Roomba.");
 	else
@@ -171,8 +171,8 @@ int main(int argc, char** argv)
 		last_y = roomba->odometry_y_;
 		last_yaw = roomba->odometry_yaw_;
 		
-		if( roomba->getSensorPackets(100) == -1) ROS_ERROR("Could not retrieve sensor packets.");
-		else roomba->calculateOdometry();
+//		if( roomba->getSensorPackets(100) == -1) ROS_ERROR("Could not retrieve sensor packets.");
+//		else roomba->calculateOdometry();
 		
 		dt = (current_time - last_time).toSec();
 		vel_x = (roomba->odometry_x_ - last_x)/dt;

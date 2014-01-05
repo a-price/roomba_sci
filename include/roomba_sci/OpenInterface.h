@@ -37,83 +37,83 @@
 #include "cereal_port/CerealPort.h"
 
 // Packets sizes
-#define OI_PACKET_GROUP_0_SIZE						26
-#define OI_PACKET_GROUP_1_SIZE						10
-#define OI_PACKET_GROUP_2_SIZE						6
-#define OI_PACKET_GROUP_3_SIZE						10
-#define OI_PACKET_GROUP_4_SIZE						14
-#define OI_PACKET_GROUP_5_SIZE						12
-#define OI_PACKET_GROUP_6_SIZE						52
-#define OI_PACKET_GROUP_100_SIZE					80
-#define OI_PACKET_GROUP_101_SIZE					28
-#define OI_PACKET_GROUP_106_SIZE					12
-#define OI_PACKET_GROUP_107_SIZE					9
-#define OI_PACKET_BUMPS_DROPS_SIZE					1
-#define OI_PACKET_WALL_SIZE							1
-#define OI_PACKET_CLIFF_LEFT_SIZE					1
-#define OI_PACKET_CLIFF_FRONT_LEFT_SIZE				1
-#define OI_PACKET_CLIFF_FRONT_RIGHT_SIZE			1
-#define OI_PACKET_CLIFF_RIGHT_SIZE					1
-#define OI_PACKET_VIRTUAL_WALL_SIZE					1
-#define OI_PACKET_WHEEL_OVERCURRENTS_SIZE			1
-#define OI_PACKET_DIRT_DETECT_SIZE					1	
-#define OI_PACKET_IR_CHAR_OMNI_SIZE					1
-#define OI_PACKET_IR_CHAR_LEFT_SIZE					1
-#define OI_PACKET_IR_CHAR_RIGHT_SIZE				1
-#define OI_PACKET_BUTTONS_SIZE						1	
-#define OI_PACKET_DISTANCE_SIZE						2
-#define OI_PACKET_ANGLE_SIZE						2
-#define OI_PACKET_CHARGING_STATE_SIZE				1
-#define OI_PACKET_VOLTAGE_SIZE						2
-#define OI_PACKET_CURRENT_SIZE						2
-#define OI_PACKET_TEMPERATURE_SIZE					1
-#define OI_PACKET_BATTERY_CHARGE_SIZE				2
-#define OI_PACKET_BATTERY_CAPACITY_SIZE				2
-#define OI_PACKET_WALL_SIGNAL_SIZE					2
-#define OI_PACKET_CLIFF_LEFT_SIGNAL_SIZE			2
-#define OI_PACKET_CLIFF_FRONT_LEFT_SIGNAL_SIZE		2
-#define OI_PACKET_CLIFF_FRONT_RIGHT_SIGNAL_SIZE		2
-#define OI_PACKET_CLIFF_RIGHT_SIGNAL_SIZE			2
-#define OI_PACKET_CHARGE_SOURCES_SIZE				1
-#define OI_PACKET_OI_MODE_SIZE						1
-#define OI_PACKET_SONG_NUMBER_SIZE					1
-#define OI_PACKET_SONG_PLAYING_SIZE					1
-#define OI_PACKET_STREAM_PACKETS_SIZE				1
-#define OI_PACKET_REQ_VELOCITY_SIZE					2
-#define OI_PACKET_REQ_RADIUS_SIZE					2
-#define OI_PACKET_REQ_RIGHT_VELOCITY_SIZE			2
-#define OI_PACKET_REQ_LEFT_VELOCITY_SIZE			2
-#define OI_PACKET_RIGHT_ENCODER_SIZE				2
-#define OI_PACKET_LEFT_ENCODER_SIZE					2
-#define OI_PACKET_LIGHT_BUMPER_SIZE					1
-#define OI_PACKET_LIGHT_BUMPER_LEFT_SIZE			2
-#define OI_PACKET_LIGHT_BUMPER_FRONT_LEFT_SIZE		2
-#define OI_PACKET_LIGHT_BUMPER_CENTER_LEFT_SIZE		2
-#define OI_PACKET_LIGHT_BUMPER_CENTER_RIGHT_SIZE	2
-#define OI_PACKET_LIGHT_BUMPER_FRONT_RIGHT_SIZE		2
-#define OI_PACKET_LIGHT_BUMPER_RIGHT_SIZE			2
-#define OI_PACKET_LEFT_MOTOR_CURRENT_SIZE			2	
-#define OI_PACKET_RIGHT_MOTOR_CURRENT_SIZE			2
-#define OI_PACKET_BRUSH_MOTOR_CURRENT_SIZE			2
-#define OI_PACKET_SIDE_BRUSH_MOTOR_CURRENT_SIZE		2
-#define OI_PACKET_STASIS_SIZE						1
+#define SCI_PACKET_GROUP_0_SIZE						26
+#define SCI_PACKET_GROUP_1_SIZE						10
+#define SCI_PACKET_GROUP_2_SIZE						6
+#define SCI_PACKET_GROUP_3_SIZE						10
+#define SCI_PACKET_GROUP_4_SIZE						14
+#define SCI_PACKET_GROUP_5_SIZE						12
+#define SCI_PACKET_GROUP_6_SIZE						52
+#define SCI_PACKET_GROUP_100_SIZE					80
+#define SCI_PACKET_GROUP_101_SIZE					28
+#define SCI_PACKET_GROUP_106_SIZE					12
+#define SCI_PACKET_GROUP_107_SIZE					9
+#define SCI_PACKET_BUMPS_DROPS_SIZE					1
+#define SCI_PACKET_WALL_SIZE							1
+#define SCI_PACKET_CLIFF_LEFT_SIZE					1
+#define SCI_PACKET_CLIFF_FRONT_LEFT_SIZE				1
+#define SCI_PACKET_CLIFF_FRONT_RIGHT_SIZE			1
+#define SCI_PACKET_CLIFF_RIGHT_SIZE					1
+#define SCI_PACKET_VIRTUAL_WALL_SIZE					1
+#define SCI_PACKET_WHEEL_OVERCURRENTS_SIZE			1
+#define SCI_PACKET_DIRT_DETECT_SIZE					1
+#define SCI_PACKET_IR_CHAR_OMNI_SIZE					1
+#define SCI_PACKET_IR_CHAR_LEFT_SIZE					1
+#define SCI_PACKET_IR_CHAR_RIGHT_SIZE				1
+#define SCI_PACKET_BUTTONS_SIZE						1
+#define SCI_PACKET_DISTANCE_SIZE						2
+#define SCI_PACKET_ANGLE_SIZE						2
+#define SCI_PACKET_CHARGING_STATE_SIZE				1
+#define SCI_PACKET_VOLTAGE_SIZE						2
+#define SCI_PACKET_CURRENT_SIZE						2
+#define SCI_PACKET_TEMPERATURE_SIZE					1
+#define SCI_PACKET_BATTERY_CHARGE_SIZE				2
+#define SCI_PACKET_BATTERY_CAPACITY_SIZE				2
+#define SCI_PACKET_WALL_SIGNAL_SIZE					2
+#define SCI_PACKET_CLIFF_LEFT_SIGNAL_SIZE			2
+#define SCI_PACKET_CLIFF_FRONT_LEFT_SIGNAL_SIZE		2
+#define SCI_PACKET_CLIFF_FRONT_RIGHT_SIGNAL_SIZE		2
+#define SCI_PACKET_CLIFF_RIGHT_SIGNAL_SIZE			2
+#define SCI_PACKET_CHARGE_SOURCES_SIZE				1
+#define SCI_PACKET_SCI_MODE_SIZE						1
+#define SCI_PACKET_SONG_NUMBER_SIZE					1
+#define SCI_PACKET_SONG_PLAYING_SIZE					1
+#define SCI_PACKET_STREAM_PACKETS_SIZE				1
+#define SCI_PACKET_REQ_VELOCITY_SIZE					2
+#define SCI_PACKET_REQ_RADIUS_SIZE					2
+#define SCI_PACKET_REQ_RIGHT_VELOCITY_SIZE			2
+#define SCI_PACKET_REQ_LEFT_VELOCITY_SIZE			2
+#define SCI_PACKET_RIGHT_ENCODER_SIZE				2
+#define SCI_PACKET_LEFT_ENCODER_SIZE					2
+#define SCI_PACKET_LIGHT_BUMPER_SIZE					1
+#define SCI_PACKET_LIGHT_BUMPER_LEFT_SIZE			2
+#define SCI_PACKET_LIGHT_BUMPER_FRONT_LEFT_SIZE		2
+#define SCI_PACKET_LIGHT_BUMPER_CENTER_LEFT_SIZE		2
+#define SCI_PACKET_LIGHT_BUMPER_CENTER_RIGHT_SIZE	2
+#define SCI_PACKET_LIGHT_BUMPER_FRONT_RIGHT_SIZE		2
+#define SCI_PACKET_LIGHT_BUMPER_RIGHT_SIZE			2
+#define SCI_PACKET_LEFT_MOTOR_CURRENT_SIZE			2
+#define SCI_PACKET_RIGHT_MOTOR_CURRENT_SIZE			2
+#define SCI_PACKET_BRUSH_MOTOR_CURRENT_SIZE			2
+#define SCI_PACKET_SIDE_BRUSH_MOTOR_CURRENT_SIZE		2
+#define SCI_PACKET_STASIS_SIZE						1
 
 // OI Modes
-#define OI_MODE_OFF				0
-#define OI_MODE_PASSIVE			1
-#define OI_MODE_SAFE			2
-#define OI_MODE_FULL			3
+#define SCI_MODE_OFF				0
+#define SCI_MODE_PASSIVE			1
+#define SCI_MODE_SAFE			2
+#define SCI_MODE_FULL			3
 
 // Delay after mode change in ms
 #define OI_DELAY_MODECHANGE_MS	20
 
 // Charging states
-#define OI_CHARGING_NO			0
-#define OI_CHARGING_RECOVERY	1
-#define OI_CHARGING_CHARGING	2
-#define OI_CHARGING_TRICKLE		3
-#define OI_CHARGING_WAITING		4
-#define OI_CHARGING_ERROR		5
+#define SCI_CHARGING_NO			0
+#define SCI_CHARGING_RECOVERY	1
+#define SCI_CHARGING_CHARGING	2
+#define SCI_CHARGING_TRICKLE		3
+#define SCI_CHARGING_WAITING		4
+#define SCI_CHARGING_ERROR		5
 
 // IR Characters
 #define FORCE_FIELD						161
@@ -175,120 +175,132 @@
 
 namespace irobot
 {
-	//! OI op codes
+	//! SCI op codes
 	/*!
-	 * Op codes for commands as specified by the iRobot Open Interface.
+	 * Op codes for commands as specified by the iRobot Serial Command Interface.
 	 */
-	typedef enum _OI_Opcode {
-
+	typedef enum _SCI_Opcode
+	{
 		// Command opcodes
-		OI_OPCODE_START = 128,
-		OI_OPCODE_BAUD = 129,
-		OI_OPCODE_CONTROL = 130,
-		OI_OPCODE_SAFE = 131,
-		OI_OPCODE_FULL = 132,
-		OI_OPCODE_POWER = 133,
-		OI_OPCODE_SPOT = 134,
-		OI_OPCODE_CLEAN = 135,
-		OI_OPCODE_MAX = 136,
-		OI_OPCODE_DRIVE = 137,
-		OI_OPCODE_MOTORS = 138,
-		OI_OPCODE_LEDS = 139,
-		OI_OPCODE_SONG = 140,
-		OI_OPCODE_PLAY = 141,
-		OI_OPCODE_SENSORS = 142,
-		OI_OPCODE_FORCE_DOCK = 143,
-		OI_OPCODE_PWM_MOTORS = 144,
-		OI_OPCODE_DRIVE_DIRECT = 145,
-		OI_OPCODE_DRIVE_PWM = 146,
-		OI_OPCODE_STREAM = 148,
-		OI_OPCODE_QUERY = 149,
-		OI_OPCODE_PAUSE_RESUME_STREAM = 150,
-		OI_OPCODE_SCHEDULE_LEDS = 162,
-		OI_OPCODE_DIGIT_LEDS_RAW = 163,
-		OI_OPCODE_DIGIT_LEDS_ASCII = 164,
-		OI_OPCODE_BUTTONS = 165,
-		OI_OPCODE_SCHEDULE = 167,
-		OI_OPCODE_SET_DAY_TIME = 168
+		SCI_OPCODE_START = 128,
+		SCI_OPCODE_BAUD = 129,
+		SCI_OPCODE_CONTROL = 130,
+		SCI_OPCODE_SAFE = 131,
+		SCI_OPCODE_FULL = 132,
+		SCI_OPCODE_POWER = 133,
+		SCI_OPCODE_SPOT = 134,
+		SCI_OPCODE_CLEAN = 135,
+		SCI_OPCODE_MAX = 136,
+		SCI_OPCODE_DRIVE = 137,
+		SCI_OPCODE_MOTORS = 138,
+		SCI_OPCODE_LEDS = 139,
+		SCI_OPCODE_SONG = 140,
+		SCI_OPCODE_PLAY = 141,
+		SCI_OPCODE_SENSORS = 142,
+		SCI_OPCODE_FORCE_DOCK = 143,
+//		SCI_OPCODE_PWM_MOTORS = 144,
+//		SCI_OPCODE_DRIVE_DIRECT = 145,
+//		SCI_OPCODE_DRIVE_PWM = 146,
+//		SCI_OPCODE_STREAM = 148,
+//		SCI_OPCODE_QUERY = 149,
+//		SCI_OPCODE_PAUSE_RESUME_STREAM = 150,
+//		SCI_OPCODE_SCHEDULE_LEDS = 162,
+//		SCI_OPCODE_DIGIT_LEDS_RAW = 163,
+//		SCI_OPCODE_DIGIT_LEDS_ASCII = 164,
+//		SCI_OPCODE_BUTTONS = 165,
+//		SCI_OPCODE_SCHEDULE = 167,
+//		SCI_OPCODE_SET_DAY_TIME = 168
 
-	} OI_Opcode;
+	} SCI_Opcode;
 
-
-	//! OI packet id
+	//! SCI driving codes
 	/*!
-	 * Packet ids for sensors as specified by the iRobot Open Interface.
+	 * Op codes for special driving commands commands as specified by the iRobot Serial Command Interface.
 	 */
-	typedef enum _OI_Packet_ID {
-	
+	typedef enum _SCI_Drive_Special
+	{
+		SCI_DRIVE_NORMAL = 0,
+		SCI_DRIVE_STRAIGHT = 0x8000,
+		SCI_DRIVE_CW = -1,
+		SCI_DRIVE_CCW = 1
+	}SCI_Drive_Special;
+
+
+	//! SCI packet id
+	/*!
+	 * Packet ids for sensors as specified by the iRobot Serial Command Interface.
+	 */
+	typedef enum _SCI_Packet_ID
+	{
 		// Sensor Packets
-		OI_PACKET_GROUP_0 = 0,			//! OI packets 7-26
-		OI_PACKET_GROUP_1 = 1,			//! OI packets 7-16
-		OI_PACKET_GROUP_2 = 2,			//! OI packets 17-20
-		OI_PACKET_GROUP_3 = 3,			//! OI packets 21-26
-		OI_PACKET_GROUP_4 = 4,			//! OI packets 27-34
-		OI_PACKET_GROUP_5 = 5,			//! OI packets 35-42
-		OI_PACKET_GROUP_6 = 6,			//! OI packets 7-42
-		OI_PACKET_GROUP_100 = 100,		//! OI packets 7-58
-		OI_PACKET_GROUP_101 = 101,		//! OI packets 43-58
-		OI_PACKET_GROUP_106 = 106,		//! OI packets 46-51
-		OI_PACKET_GROUP_107 = 107,		//! OI packets 54-58
-		OI_PACKET_BUMPS_DROPS = 7,
-		OI_PACKET_WALL = 8,
-		OI_PACKET_CLIFF_LEFT = 9,
-		OI_PACKET_CLIFF_FRONT_LEFT = 10,
-		OI_PACKET_CLIFF_FRONT_RIGHT = 11,
-		OI_PACKET_CLIFF_RIGHT = 12,
-		OI_PACKET_VIRTUAL_WALL = 13,
-		OI_PACKET_WHEEL_OVERCURRENTS = 14,
-		OI_PACKET_DIRT_DETECT = 15,
-		OI_PACKET_IR_CHAR_OMNI = 17,
-		OI_PACKET_BUTTONS = 18,
-		OI_PACKET_DISTANCE = 19,
-		OI_PACKET_ANGLE = 20,
-		OI_PACKET_CHARGING_STATE = 21,
-		OI_PACKET_VOLTAGE = 22,
-		OI_PACKET_CURRENT = 23,
-		OI_PACKET_TEMPERATURE = 24,
-		OI_PACKET_BATTERY_CHARGE = 25,
-		OI_PACKET_BATTERY_CAPACITY = 26,
-		OI_PACKET_WALL_SIGNAL = 27,
-		OI_PACKET_CLIFF_LEFT_SIGNAL = 28,
-		OI_PACKET_CLIFF_FRONT_LEFT_SIGNAL = 29,
-		OI_PACKET_CLIFF_FRONT_RIGHT_SIGNAL = 30,
-		OI_PACKET_CLIFF_RIGHT_SIGNAL = 31,
-		OI_PACKET_CHARGE_SOURCES = 34,
-		OI_PACKET_OI_MODE = 35,
-		OI_PACKET_SONG_NUMBER = 36,
-		OI_PACKET_SONG_PLAYING = 37,
-		OI_PACKET_STREAM_PACKETS = 38,
-		OI_PACKET_REQ_VELOCITY = 39,
-		OI_PACKET_REQ_RADIUS = 40,
-		OI_PACKET_REQ_RIGHT_VELOCITY = 41,
-		OI_PACKET_REQ_LEFT_VELOCITY = 42,
-		OI_PACKET_RIGHT_ENCODER = 43,
-		OI_PACKET_LEFT_ENCODER = 44,
-		OI_PACKET_LIGHT_BUMPER = 45,
-		OI_PACKET_LIGHT_BUMPER_LEFT = 46,
-		OI_PACKET_LIGHT_BUMPER_FRONT_LEFT = 47,
-		OI_PACKET_LIGHT_BUMPER_CENTER_LEFT = 48,
-		OI_PACKET_LIGHT_BUMPER_CENTER_RIGHT = 49,
-		OI_PACKET_LIGHT_BUMPER_FRONT_RIGHT = 50,
-		OI_PACKET_LIGHT_BUMPER_RIGHT = 51,
-		OI_PACKET_IR_CHAR_LEFT = 52,
-		OI_PACKET_IR_CHAR_RIGHT = 53,
-		OI_PACKET_LEFT_MOTOR_CURRENT = 54,
-		OI_PACKET_RIGHT_MOTOR_CURRENT = 55,
-		OI_PACKET_BRUSH_MOTOR_CURRENT = 56,
-		OI_PACKET_SIDE_BRUSH_MOTOR_CURRENT = 57,
-		OI_PACKET_STASIS = 58
+		SCI_PACKET_GROUP_0 = 0,			//! SCI packets 7-26
+		SCI_PACKET_GROUP_1 = 1,			//! SCI packets 7-16
+		SCI_PACKET_GROUP_2 = 2,			//! SCI packets 17-20
+		SCI_PACKET_GROUP_3 = 3,			//! SCI packets 21-26
+		SCI_PACKET_GROUP_4 = 4,			//! SCI packets 27-34
+		SCI_PACKET_GROUP_5 = 5,			//! SCI packets 35-42
+		SCI_PACKET_GROUP_6 = 6,			//! SCI packets 7-42
+		SCI_PACKET_GROUP_100 = 100,		//! SCI packets 7-58
+		SCI_PACKET_GROUP_101 = 101,		//! SCI packets 43-58
+		SCI_PACKET_GROUP_106 = 106,		//! SCI packets 46-51
+		SCI_PACKET_GROUP_107 = 107,		//! SCI packets 54-58
+		SCI_PACKET_BUMPS_DROPS = 7,
+		SCI_PACKET_WALL = 8,
+		SCI_PACKET_CLIFF_LEFT = 9,
+		SCI_PACKET_CLIFF_FRONT_LEFT = 10,
+		SCI_PACKET_CLIFF_FRONT_RIGHT = 11,
+		SCI_PACKET_CLIFF_RIGHT = 12,
+		SCI_PACKET_VIRTUAL_WALL = 13,
+		SCI_PACKET_WHEEL_OVERCURRENTS = 14,
+		SCI_PACKET_DIRT_DETECT = 15,
+		SCI_PACKET_IR_CHAR_OMNI = 17,
+		SCI_PACKET_BUTTONS = 18,
+		SCI_PACKET_DISTANCE = 19,
+		SCI_PACKET_ANGLE = 20,
+		SCI_PACKET_CHARGING_STATE = 21,
+		SCI_PACKET_VOLTAGE = 22,
+		SCI_PACKET_CURRENT = 23,
+		SCI_PACKET_TEMPERATURE = 24,
+		SCI_PACKET_BATTERY_CHARGE = 25,
+		SCI_PACKET_BATTERY_CAPACITY = 26,
+		SCI_PACKET_WALL_SIGNAL = 27,
+		SCI_PACKET_CLIFF_LEFT_SIGNAL = 28,
+		SCI_PACKET_CLIFF_FRONT_LEFT_SIGNAL = 29,
+		SCI_PACKET_CLIFF_FRONT_RIGHT_SIGNAL = 30,
+		SCI_PACKET_CLIFF_RIGHT_SIGNAL = 31,
+		SCI_PACKET_CHARGE_SOURCES = 34,
+		SCI_PACKET_SCI_MODE = 35,
+		SCI_PACKET_SONG_NUMBER = 36,
+		SCI_PACKET_SONG_PLAYING = 37,
+		SCI_PACKET_STREAM_PACKETS = 38,
+		SCI_PACKET_REQ_VELOCITY = 39,
+		SCI_PACKET_REQ_RADIUS = 40,
+		SCI_PACKET_REQ_RIGHT_VELOCITY = 41,
+		SCI_PACKET_REQ_LEFT_VELOCITY = 42,
+		SCI_PACKET_RIGHT_ENCODER = 43,
+		SCI_PACKET_LEFT_ENCODER = 44,
+		SCI_PACKET_LIGHT_BUMPER = 45,
+		SCI_PACKET_LIGHT_BUMPER_LEFT = 46,
+		SCI_PACKET_LIGHT_BUMPER_FRONT_LEFT = 47,
+		SCI_PACKET_LIGHT_BUMPER_CENTER_LEFT = 48,
+		SCI_PACKET_LIGHT_BUMPER_CENTER_RIGHT = 49,
+		SCI_PACKET_LIGHT_BUMPER_FRONT_RIGHT = 50,
+		SCI_PACKET_LIGHT_BUMPER_RIGHT = 51,
+		SCI_PACKET_IR_CHAR_LEFT = 52,
+		SCI_PACKET_IR_CHAR_RIGHT = 53,
+		SCI_PACKET_LEFT_MOTOR_CURRENT = 54,
+		SCI_PACKET_RIGHT_MOTOR_CURRENT = 55,
+		SCI_PACKET_BRUSH_MOTOR_CURRENT = 56,
+		SCI_PACKET_SIDE_BRUSH_MOTOR_CURRENT = 57,
+		SCI_PACKET_STASIS = 58
 	
-	} OI_Packet_ID;
+	} SCI_Packet_ID;
 
 
 	/*! \class OpenInterface OpenInterface.h "inc/OpenInterface.h"
-	 *  \brief C++ class implementation of the iRobot OI.
+	 *  \brief C++ class implementation of the iRobot SCI.
 	 *
-	 * This class implements the iRobot Open Interface protocolor as described by iRobot. Based on the Player Roomba driver writen by Brian Gerkey.
+	 * This class implements the iRobot Serial Command Interface protocolor as described by iRobot. Based on the Player Roomba driver writen by Brian Gerkey.
 	 */
 	class OpenInterface
 	{
@@ -308,7 +320,7 @@ namespace irobot
 	
 		//! Open the serial port
 		/*!
-		 *  \param full_control    Whether to set the Roomba on OImode full or not.
+		 *  \param full_control    Whether to set the Roomba on SCImode full or not.
 		 */
 		int openSerialPort(bool full_control);
 		//! Close the serial port
@@ -327,7 +339,7 @@ namespace irobot
 		*
 		*  \return 0 if ok, -1 otherwise.
 		*/
-		int setSensorPackets(OI_Packet_ID * new_sensor_packets, int new_num_of_packets, size_t new_buffer_size);
+		int setSensorPackets(SCI_Packet_ID * new_sensor_packets, int new_num_of_packets, size_t new_buffer_size);
 		//! Read sensor packets
 		/*!
 		*  Requested the defined sensor packets from the Roomba. If you need odometry and you requested encoder data you need to call calculateOdometry() afterwords.
@@ -338,7 +350,7 @@ namespace irobot
 		*
 		*  \return 0 if ok, -1 otherwise.
 		*/
-		int getSensorPackets(int timeout);
+//		int getSensorPackets(int timeout);
 		
 		//! Stream sensor packets. NOT TESTED
 		int streamSensorPackets();
@@ -354,22 +366,23 @@ namespace irobot
 		/*!
 		*  Send velocity commands to Roomba.
 		*
-		*  \param linear_speed  	Linear speed.
-		*  \param angular_speed  	Angular speed.
+		*  \param velocity  	Linear speed.
+		*  \param radius    	Turning Diameter.
+		*  \param special		Special command (turn in place or go straight), overrides radius
 		*
 		*  \return 0 if ok, -1 otherwise.
 		*/
-		int drive(double linear_speed, double angular_speed);
+		int drive(double velocity, double radius, SCI_Drive_Special special = SCI_DRIVE_NORMAL);
 		//! Drive direct
 		/*!
 		*  Send velocity commands to Roomba.
 		*
-		*  \param left_speed  	Left wheel speed.
-		*  \param right_speed  	Right wheel speed.
+		*  \param velocity  	Left wheel speed.
+		*  \param radius  	Right wheel speed.
 		*
 		*  \return 0 if ok, -1 otherwise.
 		*/
-		int driveDirect(int left_speed, int right_speed);
+//		int driveDirect(int left_speed, int right_speed);
 		//! Drive PWM
 		/*!
 		*  Set the motors pwms. NOT IMPLEMENTED
@@ -379,7 +392,7 @@ namespace irobot
 		*
 		*  \return 0 if ok, -1 otherwise.
 		*/
-		int drivePWM(int left_pwm, int right_pwm);
+//		int drivePWM(int left_pwm, int right_pwm);
 	
 		//! Set brushes
 		/*!
@@ -393,7 +406,7 @@ namespace irobot
 		*
 		*  \return 0 if ok, -1 otherwise.
 		*/
-		int brushes(unsigned char side_brush, unsigned char vacuum, unsigned char main_brush, unsigned char side_brush_clockwise, unsigned char main_brush_dir);
+		int brushes(bool side_brush, bool vacuum, bool main_brush);
 		//! Set brushes motors pwms
 		/*!
 		*  Set the brushes motors pwms. This is very interesting. One could disconnect the motors and plug other actuators that could be controller over pwm on the Roomba.
@@ -404,15 +417,15 @@ namespace irobot
 		*
 		*  \return 0 if ok, -1 otherwise.
 		*/
-		int brushesPWM(char main_brush, char side_brush, char vacuum);
+//		int brushesPWM(char main_brush, char side_brush, char vacuum);
 	
-		//! Set the Roomba in cleaning mode. Returns the OImode to safe.
+		//! Set the Roomba in cleaning mode. Returns the SCImode to safe.
 		int clean();
-		//! Set the Roomba in max cleaning mode. Returns the OImode to safe.
+		//! Set the Roomba in max cleaning mode. Returns the SCImode to safe.
 		int max();
-		//! Set the Roomba in spot cleaning mode. Returns the OImode to safe.
+		//! Set the Roomba in spot cleaning mode. Returns the SCImode to safe.
 		int spot();
-		//! Sends the Roomba to the dock. Returns the OImode to safe.
+		//! Sends the Roomba to the dock. Returns the SCImode to safe.
 		int goDock();
 	
 		
@@ -475,7 +488,7 @@ namespace irobot
 		*
 		*  \return 0 if ok, -1 otherwise.
 		*/
-		int setSchedulingLeds(unsigned char sun, unsigned char mon, unsigned char tue, unsigned char wed, unsigned char thu, unsigned char fri, unsigned char sat, unsigned char colon, unsigned char pm, unsigned char am, unsigned char clock, unsigned char schedule);
+//		int setSchedulingLeds(unsigned char sun, unsigned char mon, unsigned char tue, unsigned char wed, unsigned char thu, unsigned char fri, unsigned char sat, unsigned char colon, unsigned char pm, unsigned char am, unsigned char clock, unsigned char schedule);
 		//! Set digit leds
 		/*!
 		*  Set the digit leds on the Roomba, the ones on the clock. Digits are ordered from left to right on the robot, 3, 2, 1, 0.
@@ -487,12 +500,12 @@ namespace irobot
 		*
 		*  \return 0 if ok, -1 otherwise.
 		*/
-		int setDigitLeds(unsigned char digit3, unsigned char digit2, unsigned char digit1, unsigned char digit0);
+//		int setDigitLeds(unsigned char digit3, unsigned char digit2, unsigned char digit1, unsigned char digit0);
 	
 		//! Current operation mode, one of ROOMBA_MODE_'s
-		unsigned char OImode_;
+		unsigned char SCImode_;
 	
-		//! Sends the Roomba to the dock. Returns the OImode to safe.
+		//! Sends the Roomba to the dock. Returns the SCImode to safe.
 		void resetOdometry();
 		void setOdometry(double new_x, double new_y, double new_yaw);
 	
@@ -521,7 +534,7 @@ namespace irobot
 		int motor_current_[4];			//! Motor current. Indexes: LEFT RIGHT MAIN_BRUSH SIDE_BRUSH
 		bool overcurrent_[4];			//! Motor overcurrent. Indexes: LEFT RIGHT MAIN_BRUSH SIDE_BRUSH
 	
-		unsigned char charging_state_;	//! One of OI_CHARGING_'s
+		unsigned char charging_state_;	//! One of SCI_CHARGING_'s
 		bool power_cord_;				//! Whether the Roomba is connected to the power cord or not.
 		bool dock_;						//! Whether the Roomba is docked or not.
 		float voltage_;					//! Battery voltage in volts.
@@ -637,7 +650,7 @@ namespace irobot
 		*
 		*  \return 0 if ok, -1 otherwise.
 		*/
-		int sendOpcode(OI_Opcode code);
+		int sendOpcode(SCI_Opcode code);
 	
 		//! Serial port to which the robot is connected
 		std::string port_name_;
@@ -650,7 +663,7 @@ namespace irobot
 		//! Number of packets
 		int num_of_packets_;
 		//! Array of packets
-		OI_Packet_ID * sensor_packets_;
+		SCI_Packet_ID * sensor_packets_;
 		//! Total size of packets
 		size_t packets_size_;
 	
